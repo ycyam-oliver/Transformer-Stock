@@ -18,5 +18,5 @@ The way to run the codes for the transformer-based models and the relevant resul
 
 (2) Baseline model
 ========================================
-The simple ARIMA model is used as a baseline model to evaluate the transformer-based model performance. Its relevant code and results can be found in `arima_percent_change.ipynb`
+The simple ARIMA model is used as a baseline model to compare and evaluate the transformer-based model performance. Its relevant code and results can be found in `arima_percent_change.ipynb`
 
