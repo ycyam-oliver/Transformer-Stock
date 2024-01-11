@@ -11,7 +11,7 @@ The details of stock data of SPY (SPDR S&P 500 ETF Trust) used in the models can
 The way to run the codes for the transformer-based models and the relevant results can be found in the `.ipynb` files:
 
 - Informer model for Stock Price -> `informer_price.ipynb`  <br>
-- Informer model for Daily % Change of Stock Price  -> `informer_price.ipynb` <br>
+- Informer model for Daily % Change of Stock Price  -> `informer_percent_change.ipynb` <br>
 
 - NS-Transformer model for Stock Price -> `nstransformer_price.ipynb` <br>
 - NS-Informer model for Stock Price -> `ns_Informer_price.ipynb` <br>
