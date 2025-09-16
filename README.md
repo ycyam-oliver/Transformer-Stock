@@ -6,7 +6,7 @@ Main ideas of the models used...
 
 (ii) ***NS-Transformer Model***: "NS" stands for "non-stationary". This model stabilizes the non-stationary input while still let the model "see" regime changes. It doesn't involve the relatively abrupt transformation of the input data, like taking difference, as in the usual way to turn non-stationary data stationary, so less information is lost this way (like trend is preserved). 
 
-(iii) ***NS-Informer model***: the <markk>*main innovation*</mark> in this repo which combines the NS-transformer module into the Informer model so that it keeps the efficiency of the informer and adds NS-transformer's stabilization an regime-awareness. This makes the forecast more robust. 
+(iii) ***NS-Informer model***: the <mark>*main innovation*</mark> in this repo which combines the NS-transformer module into the Informer model so that it keeps the efficiency of the informer and adds NS-transformer's stabilization an regime-awareness. This makes the forecast more robust. 
 
 # 📜Model Results
 
