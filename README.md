@@ -12,6 +12,8 @@ Main ideas of the models used...
 
 ### 📌Methodology: "Rolling Prediction"
 
+- Models are trained on the daily data of SPY (Open, High, Low, Close, Volume) from 2010 Jan 4 to 2022 Dec 30 to predict the Close Price
+
 - Throughout the test set, the past 20-day data (prediction window) is used to predict the Close price of the coming 5 days
 
 - After each prediction, the prediction window rolls forward by one day and make the next prediction
