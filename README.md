@@ -49,7 +49,7 @@ NS-Transformer can do a much better job than the informer in adapting to the cha
 💬Comments: </br>
 When the NS components are added to the Informer model, it can also catch up with the trend in the unseen data quite well.
 
-## Trading Performance using Model Prediction
+# 📜Trading Performance using Model Prediction
 
 > ***Motivation***: The result graphs above might be misleading in terms of financial trading. The small deviation from the ground truth might not be apparent in this time scale of the graph and that could lead to huge loss.
 
@@ -61,7 +61,7 @@ What we care more is the profit we can make. So use a ***simple strategy*** to s
 - When the model predicts the price will drop by >0.5% on the next day and we are holding some stock, we sell all of them </br>
 <mark>(** After selling the stock each time, we add the gain/loss to the total profit (note the profit will not be reinvested))</mark>
 
-### Results:
+## Simulated Profits:
 
 <table style="border: 1px solid black;border-collapse: collapse;">
   <thead>
@@ -94,12 +94,11 @@ For the informer model, since the predicted daily price variation is too small, 
 
 > The transformer-based models were modified from the official repo of [Informer](https://github.com/zhouhaoyi/Informer2020) and [NS-Transformer](https://github.com/thuml/Nonstationary_Transformers) for predicting stock data.
 
-📌***Input feature(s)*** (e.g. Open, High, Low, Close, Volume) can be specified manually in the `args.auxil_features` variable (in the `.ipynb` files) to predict any intended ***target(s)*** (e.g. Close) indicated by the `args.target` variable.
+✨***Input feature(s)*** (e.g. Open, High, Low, Close, Volume) can be specified manually in the `args.auxil_features` variable (in the `.ipynb` files) to predict any intended ***target(s)*** (e.g. Close) indicated by the `args.target` variable.
 
 The details of stock data of SPY (SPDR S&P 500 ETF Trust) used in the models can be found in the data exploration file `data_prep_and_exploration.ipynb`. 
 
 ### (1) How to use the codes
-========================================</br>
 The way to run the codes for the transformer-based models and the relevant results can be found in the `.ipynb` files:
 
 - Informer model for Stock Price -> `informer_price.ipynb`  <br>
@@ -109,7 +108,6 @@ The way to run the codes for the transformer-based models and the relevant resul
 - NS-Informer model for Stock Price -> `ns_Informer_price.ipynb` <br>
 
 ### (2) Baseline model
-========================================</br>
 The simple ARIMA model is used as a baseline model to compare and evaluate the transformer-based model performance. Its relevant code and results can be found in `arima_percent_change.ipynb`
 
 
