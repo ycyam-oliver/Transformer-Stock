@@ -1,44 +1,24 @@
 # Transformer-Stock
 
-## Brief Introduction
+## 📜Introduction
 
-(i) Informer Model: makes longer-horizon forecasting possible by being more selective about what it attends to and by compressing information as it goes, so we can use transformer model on time series data more efficiently without the usual compute burden
+Main ideas of the models used...
 
-(ii) NS-Transformer Model: "NS" stands for "non-stationary". This model stabilizes the non-stationary input while still let the model "see" regime changes. It doesn't involve the relatively abrupt transformation of the input data, like taking difference, as in the usual way to turn non-stationary data stationary, so less information is lost this way (like trend is preserved). 
+(i) ***Informer Model***: makes longer-horizon forecasting possible by being more selective about what it attends to and by compressing information as it goes, so we can use transformer model on time series data more efficiently without the usual compute burden
 
-(iii) NS-Informer model: the main innovation in this repo which combines the NS-transformer module into the Informer model so that it keeps the efficiency of the informer and adds NS-transformer's stabilization an regime-awareness. This makes the forecast more robust. 
+(ii) ***NS-Transformer Model***: "NS" stands for "non-stationary". This model stabilizes the non-stationary input while still let the model "see" regime changes. It doesn't involve the relatively abrupt transformation of the input data, like taking difference, as in the usual way to turn non-stationary data stationary, so less information is lost this way (like trend is preserved). 
 
-## Usage 
+(iii) ***NS-Informer model***: the main innovation in this repo which combines the NS-transformer module into the Informer model so that it keeps the efficiency of the informer and adds NS-transformer's stabilization an regime-awareness. This makes the forecast more robust. 
 
-> The transformer-based models were modified from the official repo of [Informer](https://github.com/zhouhaoyi/Informer2020) and [NS-Transformer](https://github.com/thuml/Nonstationary_Transformers) for predicting stock data.
+## 📜Model Results
 
-***Input feature(s)*** (e.g. Open, High, Low, Close, Volume) can be specified manually in the `args.auxil_features` variable (in the `.ipynb` files) to predict any intended ***target(s)*** (e.g. Close) indicated by the `args.target` variable.
-
-The details of stock data of SPY (SPDR S&P 500 ETF Trust) used in the models can be found in the data exploration file `data_prep_and_exploration.ipynb`. 
-
-### (1) How to use the codes
-========================================
-The way to run the codes for the transformer-based models and the relevant results can be found in the `.ipynb` files:
-
-- Informer model for Stock Price -> `informer_price.ipynb`  <br>
-- Informer model for Daily % Change of Stock Price  -> `informer_percent_change.ipynb` <br>
-
-- NS-Transformer model for Stock Price -> `nstransformer_price.ipynb` <br>
-- NS-Informer model for Stock Price -> `ns_Informer_price.ipynb` <br>
-
-### (2) Baseline model
-========================================
-The simple ARIMA model is used as a baseline model to compare and evaluate the transformer-based model performance. Its relevant code and results can be found in `arima_percent_change.ipynb`
-
-## Model Results
-
-### Methodology: "Rolling Prediction"
+### 📌Methodology: "Rolling Prediction"
 
 - Throughout the test set, the past 20-day data (prediction window) is used to predict the Close price of the coming 5 days
 
 - After each prediction, the prediction window rolls forward by one day and make the next prediction
 
-### Visualization of Model Predicted Results
+### 📌Visualization of Model Predicted Results
 
 - In each prediction, the first day prediction in the 5-day predicted Close price sequence are collected (which is supposed to be the most reliable in the 5-day prediction)
 
@@ -47,28 +27,28 @@ The simple ARIMA model is used as a baseline model to compare and evaluate the t
 Red curve: Predicted Close price by the corresponding model
 Dotted curve: Ground Truth of Close price
 ``` 
-#### Informer Model:
+#### 💡(i) Informer Model:
 
-<img src="results/Informer_result.jpg" alt="informer_result" width="60%">
+<img src="results/Informer_result.jpg" alt="informer_result" width="45%">
 
-Comments:
+💬Comments:
 1) The informer model cannot adapt to the trend of the unseen data 
 2) Probably learn the trend in the training data too well
 3) The Close price is non-stationary </br>
    => likely the model cannot predict the change of the trend (the change in the mean) and the change in variance
 
-#### NS-Transformer Model:
+#### 💡(ii) NS-Transformer Model:
 
-<img src="results/NS-Transformer_result.jpg" alt="NS-Transformer_result" width="60%">
+<img src="results/NS-Transformer_result.jpg" alt="NS-Transformer_result" width="45%">
 
-Comments: </br>
+💬Comments: </br>
 NS-Transformer can do a much better job than the informer in adapting to the changing trend of the unseen data
 
-#### NS-Informer Model:
+#### 💡(iii) NS-Informer Model:
 
 <img src="results/NS-Informer_result.jpg" alt="NS-Informer_result" width="60%">
 
-Comments: </br>
+💬Comments: </br>
 When the NS components are added to the Informer model, it can also catch up with the trend in the unseen data quite well.
 
 ## Trading Performance using Model Prediction
@@ -112,7 +92,27 @@ The NS-transformer model performs better than the baseline ARIMA model.
 
 For the informer model, since the predicted daily price variation is too small, there is barely any trading triggered. Therefore there is ~0% profit. 
 
+## 📜Code Usage 
 
+> The transformer-based models were modified from the official repo of [Informer](https://github.com/zhouhaoyi/Informer2020) and [NS-Transformer](https://github.com/thuml/Nonstationary_Transformers) for predicting stock data.
+
+📌***Input feature(s)*** (e.g. Open, High, Low, Close, Volume) can be specified manually in the `args.auxil_features` variable (in the `.ipynb` files) to predict any intended ***target(s)*** (e.g. Close) indicated by the `args.target` variable.
+
+The details of stock data of SPY (SPDR S&P 500 ETF Trust) used in the models can be found in the data exploration file `data_prep_and_exploration.ipynb`. 
+
+### (1) How to use the codes
+========================================
+The way to run the codes for the transformer-based models and the relevant results can be found in the `.ipynb` files:
+
+- Informer model for Stock Price -> `informer_price.ipynb`  <br>
+- Informer model for Daily % Change of Stock Price  -> `informer_percent_change.ipynb` <br>
+
+- NS-Transformer model for Stock Price -> `nstransformer_price.ipynb` <br>
+- NS-Informer model for Stock Price -> `ns_Informer_price.ipynb` <br>
+
+### (2) Baseline model
+========================================
+The simple ARIMA model is used as a baseline model to compare and evaluate the transformer-based model performance. Its relevant code and results can be found in `arima_percent_change.ipynb`
 
 
 
