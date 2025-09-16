@@ -16,15 +16,17 @@ Main ideas of the models used...
 
 - After each prediction, the prediction window rolls forward by one day and make the next prediction
 
-### 📌Visualization of Model Predicted Results
+### 📌Visualization of Predicted Results on Unseen Test Data
 
 - In each prediction, the first day prediction in the 5-day predicted Close price sequence are collected (which is supposed to be the most reliable in the 5-day prediction)
 
 - In each of the model plot, <br>
 ```
-Red curve: Predicted Close price by the corresponding model
+Red curve: Predicted Close Price
 Dotted curve: Ground Truth of Close price
 ``` 
+> ⚠️'Model fitted' in the legend means 'trained model'. It is tested on ***unseen data*** here.
+
 ### 💡(i) Informer Model:
 
 <img src="results/Informer_result.jpg" alt="informer_result" width="45%">
